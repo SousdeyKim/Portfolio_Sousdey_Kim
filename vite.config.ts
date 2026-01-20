@@ -4,7 +4,7 @@ import path from "path";
 
 export default defineConfig(() => ({
   // Use "/" in dev, repo name in production build
-  base: "/",
+  base: "/Portfolio_Sousdey_Kim/",
 
   server: {
     host: "::",
