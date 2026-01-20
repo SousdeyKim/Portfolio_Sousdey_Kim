@@ -2,9 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig(() => ({
   // Use "/" in dev, repo name in production build
-  base: mode === "production" ? "/Portfolio_Sousdey_Kim/" : "/",
+  base: "/",
 
   server: {
     host: "::",
