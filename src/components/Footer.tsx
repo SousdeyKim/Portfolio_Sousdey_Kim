@@ -17,8 +17,7 @@ const Footer = () => {
               KS
             </motion.span>
             <p className="text-sm text-muted-foreground flex items-center gap-1">
-              © {currentYear} Kim Sousdey. Made with 
-              <Heart size={14} className="text-primary fill-primary" />
+              © {currentYear} Kim Sousdey
             </p>
           </div>
 
