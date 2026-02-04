@@ -30,6 +30,28 @@ const AboutSection = () => {
     },
   ];
 
+  const scrollToSection = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    e.preventDefault();
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      const offset = 80; // same navbar height
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section id="about" className="section-padding" ref={ref}>
       <div className="container mx-auto">
@@ -56,26 +78,42 @@ const AboutSection = () => {
             className="space-y-6"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a motivated <span className="text-foreground font-medium">Full Stack Web Developer</span> based 
-              in Phnom Penh, Cambodia, with hands-on experience in building robust web applications. 
-              My journey in tech started with a curiosity about how things work, which evolved into 
-              a passion for creating digital solutions that make a real impact.
+              I'm a motivated{" "}
+              <span className="text-foreground font-medium">
+                Full Stack Web Developer
+              </span>{" "}
+              based in Phnom Penh, Cambodia, with hands-on experience in
+              building robust web applications. My journey in tech started with
+              a curiosity about how things work, which evolved into a passion
+              for creating digital solutions that make a real impact.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              With expertise in <span className="text-primary">Laravel, PHP, React, Java, and Express</span>, 
-              I specialize in developing database-driven applications with clean architecture. I believe 
-              in writing code that is not only functional but also maintainable and scalable.
+              With expertise in{" "}
+              <span className="text-primary">
+                Laravel, PHP, React, Java, and Express
+              </span>
+              , I specialize in developing database-driven applications with
+              clean architecture. I believe in writing code that is not only
+              functional but also maintainable and scalable.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Currently pursuing my <span className="text-foreground font-medium">Associate Degree in App and 
-              Web Development</span> at TUX Global Institute, I'm constantly expanding my skill set and staying 
-              updated with the latest industry trends. My goal is to grow as a developer and contribute 
-              to projects that push technological boundaries.
+              Currently pursuing my{" "}
+              <span className="text-foreground font-medium">
+                Associate Degree in App and Web Development
+              </span>{" "}
+              at TUX Global Institute, I'm constantly expanding my skill set and
+              staying updated with the latest industry trends. My goal is to
+              grow as a developer and contribute to projects that push
+              technological boundaries.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              During my internship at <span className="text-foreground font-medium">Cam-Active Co., Ltd</span>, 
-              I gained valuable real-world experience in Laravel backend development, working on inventory 
-              management systems and improving operational efficiency through technology.
+              During my internship at{" "}
+              <span className="text-foreground font-medium">
+                Cam-Active Co., Ltd
+              </span>
+              , I gained valuable real-world experience in Laravel backend
+              development, working on inventory management systems and improving
+              operational efficiency through technology.
             </p>
 
             <motion.div
@@ -86,6 +124,7 @@ const AboutSection = () => {
             >
               <a
                 href="#contact"
+                onClick={(e) => scrollToSection(e, "#contact")}
                 className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
               >
                 Let's connect and build something great together
@@ -113,7 +152,9 @@ const AboutSection = () => {
                   <item.icon className="text-primary" size={24} />
                 </div>
                 <h3 className="font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </motion.div>
