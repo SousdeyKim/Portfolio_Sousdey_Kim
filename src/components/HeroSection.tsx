@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, MapPin, FileDown } from "lucide-react";
+import {
+  ArrowDown,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  FileDown,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const RESUME_URL = "/resume-kim-sousdey.pdf";
+const RESUME_URL = "https://drive.google.com/uc?export=download&id=1ig23BDIpX8df4HnLvwQjGRnGhsYloMa7";
 
 const HeroSection = () => {
   return (
@@ -16,7 +23,8 @@ const HeroSection = () => {
         <motion.div
           className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-20"
           style={{
-            background: "radial-gradient(circle, hsl(187 85% 53% / 0.3), transparent 70%)",
+            background:
+              "radial-gradient(circle, hsl(187 85% 53% / 0.3), transparent 70%)",
           }}
           animate={{
             scale: [1, 1.2, 1],
@@ -31,7 +39,8 @@ const HeroSection = () => {
         <motion.div
           className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full opacity-15"
           style={{
-            background: "radial-gradient(circle, hsl(199 89% 48% / 0.3), transparent 70%)",
+            background:
+              "radial-gradient(circle, hsl(199 89% 48% / 0.3), transparent 70%)",
           }}
           animate={{
             scale: [1.2, 1, 1.2],
@@ -43,9 +52,9 @@ const HeroSection = () => {
             ease: "easeInOut",
           }}
         />
-        
+
         {/* Grid Pattern */}
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
             backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
@@ -78,8 +87,7 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4"
             >
-              Hi, I'm{" "}
-              <span className="gradient-text">Kim Sousdey</span>
+              Hi, I'm <span className="gradient-text">Kim Sousdey</span>
             </motion.h1>
 
             <motion.h2
@@ -97,9 +105,10 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto lg:mx-0 mb-4"
             >
-              Building clean, scalable web applications with strong backend logic 
-              and modern, user-friendly interfaces. Passionate about creating 
-              solutions that make a difference.
+              Building clean, scalable web applications with strong backend
+              logic, user-friendly interfaces, with a strong focus on critical
+              thinking, and understanding the underlying design decisions behind
+              the code.
             </motion.p>
 
             <motion.div
@@ -121,13 +130,19 @@ const HeroSection = () => {
               <Button asChild size="lg" className="w-full sm:w-auto group">
                 <a href="#projects">
                   View Projects
-                  <ArrowDown size={18} className="ml-2 group-hover:translate-y-1 transition-transform" />
+                  <ArrowDown
+                    size={18}
+                    className="ml-2 group-hover:translate-y-1 transition-transform"
+                  />
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                <a href="#contact">
-                  Contact Me
-                </a>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
+                <a href="#contact">Contact Me</a>
               </Button>
             </motion.div>
 
@@ -137,9 +152,17 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.45 }}
               className="flex items-center justify-center lg:justify-start mb-8"
             >
-              <Button asChild variant="ghost" size="lg" className="w-full sm:w-auto group text-muted-foreground hover:text-foreground">
+              <Button
+                asChild
+                variant="ghost"
+                size="lg"
+                className="w-full sm:w-auto group text-muted-foreground hover:text-foreground"
+              >
                 <a href={RESUME_URL} download="Kim-Sousdey-Resume.pdf">
-                  <FileDown size={18} className="mr-2 group-hover:animate-bounce" />
+                  <FileDown
+                    size={18}
+                    className="mr-2 group-hover:animate-bounce"
+                  />
                   Download Resume
                 </a>
               </Button>
@@ -192,16 +215,22 @@ const HeroSection = () => {
             <div className="relative">
               {/* Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-3xl animate-pulse-glow" />
-              
+
               {/* Profile Container */}
               <motion.div
                 className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20"
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
                 <div className="w-full h-full bg-secondary flex items-center justify-center">
-                  <span className="text-6xl md:text-7xl lg:text-8xl font-bold gradient-text">KS</span>
+                  <span className="text-6xl md:text-7xl lg:text-8xl font-bold gradient-text">
+                    KS
+                  </span>
                 </div>
               </motion.div>
 
@@ -209,21 +238,35 @@ const HeroSection = () => {
               <motion.div
                 className="absolute -top-4 -right-4 px-4 py-2 bg-card border border-border/50 rounded-lg shadow-lg"
                 animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 <span className="text-sm font-medium">React</span>
               </motion.div>
               <motion.div
                 className="absolute -bottom-2 -left-4 px-4 py-2 bg-card border border-border/50 rounded-lg shadow-lg"
                 animate={{ y: [0, 8, 0], rotate: [0, -5, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                transition={{
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
               >
                 <span className="text-sm font-medium">Laravel</span>
               </motion.div>
               <motion.div
                 className="absolute top-1/2 -right-8 px-4 py-2 bg-card border border-border/50 rounded-lg shadow-lg"
                 animate={{ x: [0, 5, 0], rotate: [0, 3, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
               >
                 <span className="text-sm font-medium">MySQL</span>
               </motion.div>
