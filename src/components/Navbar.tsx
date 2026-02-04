@@ -13,7 +13,7 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
-const RESUME_URL = "/resume-kim-sousdey.pdf";
+const RESUME_URL = "https://drive.google.com/uc?export=download&id=1ig23BDIpX8df4HnLvwQjGRnGhsYloMa7";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
