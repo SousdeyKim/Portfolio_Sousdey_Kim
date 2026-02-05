@@ -31,8 +31,8 @@ const skillCategories: SkillCategory[] = [
     title: "Frontend",
     icon: Palette,
     skills: [
-      { name: "React", level: 85, icon: Code },
-      { name: "JavaScript", level: 90, icon: FileCode },
+      { name: "React", level: 75, icon: Code },
+      { name: "JavaScript", level: 75, icon: FileCode },
       { name: "HTML/CSS", level: 95, icon: Layers },
       { name: "Tailwind CSS", level: 88, icon: Palette },
       { name: "Bootstrap", level: 85, icon: MonitorSmartphone },
@@ -44,15 +44,15 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "PHP", level: 88, icon: FileCode },
       { name: "Laravel", level: 85, icon: Server },
-      { name: "Java", level: 75, icon: Code },
-      { name: "Express.js", level: 70, icon: Terminal },
+      { name: "Java", level: 65, icon: Code },
+      { name: "Express.js", level: 55, icon: Terminal },
     ],
   },
   {
     title: "Database",
     icon: Database,
     skills: [
-      { name: "MySQL", level: 85, icon: Database },
+      { name: "MySQL", level: 95, icon: Database },
       { name: "MongoDB", level: 70, icon: Database },
     ],
   },
@@ -60,9 +60,9 @@ const skillCategories: SkillCategory[] = [
     title: "Tools & Others",
     icon: Wrench,
     skills: [
-      { name: "Git & GitHub", level: 85, icon: GitBranch },
+      { name: "Git & GitHub", level: 95, icon: GitBranch },
       { name: "VS Code", level: 95, icon: Code },
-      { name: "MAMP", level: 80, icon: Server },
+      { name: "MAMP", level: 95, icon: Server },
     ],
   },
 ];

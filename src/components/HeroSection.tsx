@@ -9,9 +9,32 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const RESUME_URL = "https://drive.google.com/uc?export=download&id=1ig23BDIpX8df4HnLvwQjGRnGhsYloMa7";
+const RESUME_URL =
+  "https://drive.google.com/uc?export=download&id=1ig23BDIpX8df4HnLvwQjGRnGhsYloMa7";
 
 const HeroSection = () => {
+  const scrollToSection = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    e.preventDefault();
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      const offset = 80; // same navbar height
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section
       id="hero"
@@ -128,7 +151,10 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-4"
             >
               <Button asChild size="lg" className="w-full sm:w-auto group">
-                <a href="#projects">
+                <a
+                  href="#projects"
+                  onClick={(e) => scrollToSection(e, "#projects")}
+                >
                   View Projects
                   <ArrowDown
                     size={18}
@@ -142,7 +168,12 @@ const HeroSection = () => {
                 size="lg"
                 className="w-full sm:w-auto"
               >
-                <a href="#contact">Contact Me</a>
+                <a
+                  href="#contact"
+                  onClick={(e) => scrollToSection(e, "#contact")}
+                >
+                  Contact Me
+                </a>
               </Button>
             </motion.div>
 
