@@ -14,7 +14,7 @@ interface Education {
 
 const educations: Education[] = [
   {
-    degree: "Associate Degree in App and Web Development",
+    degree: "Associate Degree in Web Development",
     institution: "TUX Global Institute",
     period: "2024 – Present",
     status: "In Progress",
@@ -51,8 +51,7 @@ const EducationSection = () => {
             Education
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A blend of technical expertise and global perspective, continuously 
-            learning and growing.
+            A solid academic foundation built through structured learning and hands-on practice.
           </p>
         </motion.div>
 

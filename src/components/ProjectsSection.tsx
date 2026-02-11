@@ -1,6 +1,14 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Users, Briefcase, ShoppingCart, Building, LucideIcon } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  Users,
+  Briefcase,
+  ShoppingCart,
+  Building,
+  LucideIcon,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -19,39 +27,44 @@ interface Project {
 const projects: Project[] = [
   {
     title: "MajorConnect",
-    description: "A comprehensive mentorship platform designed to help students explore university majors through personalized 1-on-1 sessions with experienced senior students, bridging the gap between academic choices and career paths.",
+    description:
+      "A comprehensive mentorship platform designed to help students explore university majors through personalized 1-on-1 sessions with experienced senior students, bridging the gap between academic choices and career paths.",
     features: [
       "Major browsing & intelligent search",
       "Detailed mentor profiles",
       "Student satisfaction indicators",
-      "Integrated booking system",
-      "Payment flow UI",
+      "Booking flow UI (no backend)",
+      "Payment flow UI (mock)",
       "Progress tracking dashboard",
       "Reviews & feedback system",
     ],
-    techStack: ["React", "Laravel", "MySQL", "Tailwind CSS"],
+    techStack: ["React", "Tailwind CSS", "Framer Motion"],
     icon: Users,
-    role: "Full Stack Developer",
+    role: "Frontend Developer (AI-assisted)",
     gradient: "from-cyan-500/20 to-blue-500/20",
+    liveUrl: "https://sousdeykim.github.io/major-connect-hub",
   },
   {
     title: "Job Board Applications",
-    description: "Two comprehensive Laravel-based job board platforms focused on robust backend architecture and efficient database design, enabling seamless connections between employers and job seekers.",
+    description:
+      "A comprehensive Laravel-based job board platforms focused on robust backend architecture and efficient database design, enabling seamless connections between employers and job seekers.",
     features: [
-      "Dynamic job listings management",
+      "Laravel MVC architecture ",
       "Secure authentication system",
-      "Clean MVC architecture",
-      "Advanced search & filtering",
-      "Application tracking",
+      "Database migrations & models",
+      "Blade templates for UI",
+      "Job listing CRUD (Create, Read, Update, Delete)",
     ],
     techStack: ["Laravel", "PHP", "MySQL", "Bootstrap"],
     icon: Briefcase,
     role: "Backend Developer",
     gradient: "from-purple-500/20 to-pink-500/20",
+    githubUrl: "https://github.com/SousdeyKim/Joblisting-laravel-project.git",
   },
   {
     title: "Point of Sale (POS)",
-    description: "A feature-rich Point of Sale system designed for retail businesses, streamlining product management, sales operations, and seller performance analytics with intuitive interfaces.",
+    description:
+      "A feature-rich Point of Sale system designed for retail businesses, streamlining product management, sales operations, and seller performance analytics with intuitive interfaces.",
     features: [
       "Complete CRUD operations",
       "Invoice generation & management",
@@ -63,10 +76,12 @@ const projects: Project[] = [
     icon: ShoppingCart,
     role: "Full Stack Developer",
     gradient: "from-green-500/20 to-emerald-500/20",
+    githubUrl: "https://github.com/SousdeyKim/Project_Post.git",
   },
   {
     title: "Hotel Management System",
-    description: "A Java-based comprehensive hotel operations management system providing efficient handling of guest check-ins, room availability, and secure staff authentication.",
+    description:
+      "A Java-based comprehensive hotel operations management system providing efficient handling of guest check-ins, room availability, and secure staff authentication.",
     features: [
       "Guest check-in / check-out",
       "Real-time room availability",
@@ -78,10 +93,17 @@ const projects: Project[] = [
     icon: Building,
     role: "Java Developer",
     gradient: "from-orange-500/20 to-red-500/20",
+    githubUrl: "https://github.com/SousdeyKim/Hotel-management-system.git",
   },
 ];
 
-const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
+const ProjectCard = ({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -94,19 +116,24 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       className="group glass-card overflow-hidden glow-effect hover:border-primary/30 transition-all duration-300"
     >
       {/* Header with gradient */}
-      <div className={`relative h-48 bg-gradient-to-br ${project.gradient} p-6 flex flex-col justify-between`}>
+      <div
+        className={`relative h-48 bg-gradient-to-br ${project.gradient} p-6 flex flex-col justify-between`}
+      >
         <div className="flex items-start justify-between">
           <div className="w-14 h-14 rounded-xl bg-background/90 flex items-center justify-center shadow-lg">
             <project.icon className="text-primary" size={28} />
           </div>
-          <Badge variant="secondary" className="bg-background/90 text-foreground">
+          <Badge
+            variant="secondary"
+            className="bg-background/90 text-foreground"
+          >
             {project.role}
           </Badge>
         </div>
         <div>
           <h3 className="text-2xl font-bold">{project.title}</h3>
         </div>
-        
+
         {/* Decorative elements */}
         <div className="absolute top-4 right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
       </div>
@@ -122,7 +149,10 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           <h4 className="text-sm font-medium">Key Features:</h4>
           <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
             {project.features.slice(0, 6).map((feature) => (
-              <li key={feature} className="text-xs text-muted-foreground flex items-start gap-1.5">
+              <li
+                key={feature}
+                className="text-xs text-muted-foreground flex items-start gap-1.5"
+              >
                 <span className="text-primary mt-1">•</span>
                 {feature}
               </li>
@@ -140,10 +170,14 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
         </div>
 
         {/* Actions */}
-        <div className="flex gap-3 pt-2">
+        <div className="flex gap-3 pt-2 relative z-10">
           {project.githubUrl && (
             <Button asChild variant="outline" size="sm" className="flex-1">
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Github size={16} className="mr-2" />
                 Code
               </a>
@@ -151,7 +185,11 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           )}
           {project.liveUrl && (
             <Button asChild size="sm" className="flex-1">
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ExternalLink size={16} className="mr-2" />
                 Demo
               </a>
@@ -189,8 +227,8 @@ const ProjectsSection = () => {
             Featured Projects
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of projects that showcase my skills in building full-stack 
-            applications with clean code and user-focused design.
+            A selection of projects that showcase my skills in building
+            full-stack applications with clean code and user-focused design.
           </p>
         </motion.div>
 
