@@ -90,7 +90,7 @@ const AboutSection = () => {
             <p className="text-lg text-muted-foreground leading-relaxed">
               With expertise in{" "}
               <span className="text-primary">
-                Laravel, PHP, React, Java, and Express
+                HTML, CSS, Javascript, Laravel, PHP, React, Tailwind CSS, Bootstrap, and MySQL
               </span>
               , I specialize in developing database-driven applications with
               clean architecture. I believe in writing code that is not only
