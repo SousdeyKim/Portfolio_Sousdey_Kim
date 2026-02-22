@@ -4,6 +4,26 @@ import { Github, Linkedin, Mail, Heart } from "lucide-react";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollToSection = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string,
+  ) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <footer className="py-8 border-t border-border/50">
       <div className="container mx-auto px-4 md:px-8">
@@ -23,16 +43,32 @@ const Footer = () => {
 
           {/* Navigation */}
           <nav className="flex flex-wrap items-center justify-center gap-6 text-sm">
-            <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              href="about"
+              onClick={(e) => scrollToSection(e, "about")}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
               About
             </a>
-            <a href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              href="#projects"
+              onClick={(e) => scrollToSection(e, "projects")}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
               Projects
             </a>
-            <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              href="#experience"
+              onClick={(e) => scrollToSection(e, "experience")}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
               Experience
             </a>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              href="#contact"
+              onClick={(e) => scrollToSection(e, "contact")}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
               Contact
             </a>
           </nav>

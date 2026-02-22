@@ -34,7 +34,7 @@ const Navbar = () => {
     const element = document.getElementById(targetId);
 
     if (element) {
-      const offset = 80; // Offset for fixed navbar height
+      const offset = 80; 
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -81,7 +81,7 @@ const Navbar = () => {
               <motion.a
                 key={link.name}
                 href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)} // Applied Fix
+                onClick={(e) => scrollToSection(e, link.href)}
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
