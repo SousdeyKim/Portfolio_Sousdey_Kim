@@ -16,8 +16,8 @@ const educations: Education[] = [
   {
     degree: "Associate Degree in Web Development",
     institution: "TUX Global Institute",
-    period: "2024 – Present",
-    status: "In Progress",
+    period: "2024 – 2026",
+    status: "Completed",
     description: "Focused on modern web development technologies, application design, and software engineering principles. Building practical skills through hands-on projects.",
     icon: GraduationCap,
   },

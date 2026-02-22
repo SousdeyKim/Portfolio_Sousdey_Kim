@@ -22,16 +22,17 @@ const experiences: Experience[] = [
     period: "July 2025 – September 2025",
     type: "Internship",
     responsibilities: [
-      "Developed and maintained Laravel-based backend systems for inventory management",
-      "Implemented CRUD operations for efficient data handling and manipulation",
-      "Managed and optimized MySQL databases for improved application performance",
-      "Built secure authentication logic and user access control systems",
-      "Collaborated with team members to deliver features on schedule",
+      "Designed and developed scalable Laravel backend architecture for inventory management systems",
+      "Implemented RESTful APIs with optimized CRUD operations for efficient data processing",
+      "Optimized MySQL queries and added indexing to improve database performance",
+      "Structured modular and maintainable codebase following MVC best practices",
+      "Built secure authentication and role-based access control systems",
     ],
     achievements: [
+      "Enhanced system scalability by optimizing database queries and reducing response time",
       "Improved inventory tracking accuracy and operational efficiency",
-      "Reduced database query response time through optimization",
-      "Successfully delivered all assigned features within deadlines",
+      "Reduced query execution time through indexing and performance tuning",
+      "Delivered all assigned features within deadlines while maintaining code quality",
     ],
     skills: ["Laravel", "PHP", "MySQL", "Git", "REST APIs"],
   },
@@ -57,8 +58,8 @@ const ExperienceSection = () => {
             Professional Experience
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Hands-on experience building real-world applications and contributing 
-            to production systems.
+            Hands-on experience building real-world applications and
+            contributing to production systems.
           </p>
         </motion.div>
 
@@ -88,10 +89,16 @@ const ExperienceSection = () => {
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <h3 className="text-xl md:text-2xl font-bold">{exp.title}</h3>
-                        <Badge className="hidden sm:inline-flex">{exp.type}</Badge>
+                        <h3 className="text-xl md:text-2xl font-bold">
+                          {exp.title}
+                        </h3>
+                        <Badge className="hidden sm:inline-flex">
+                          {exp.type}
+                        </Badge>
                       </div>
-                      <p className="text-lg text-primary font-medium">{exp.company}</p>
+                      <p className="text-lg text-primary font-medium">
+                        {exp.company}
+                      </p>
                     </div>
                     <div className="flex flex-col items-start sm:items-end gap-1 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1.5">
@@ -112,7 +119,10 @@ const ExperienceSection = () => {
                     </h4>
                     <ul className="space-y-2">
                       {exp.responsibilities.map((resp, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <li
+                          key={i}
+                          className="flex items-start gap-2 text-sm text-muted-foreground"
+                        >
                           <span className="text-primary mt-1">▹</span>
                           {resp}
                         </li>
@@ -128,7 +138,10 @@ const ExperienceSection = () => {
                     <ul className="space-y-2">
                       {exp.achievements.map((ach, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm">
-                          <CheckCircle2 size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                          <CheckCircle2
+                            size={16}
+                            className="text-primary mt-0.5 flex-shrink-0"
+                          />
                           <span className="text-foreground">{ach}</span>
                         </li>
                       ))}
