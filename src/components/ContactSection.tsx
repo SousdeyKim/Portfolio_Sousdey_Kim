@@ -1,6 +1,14 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, ArrowRight } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  ArrowRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -69,7 +77,7 @@ const ContactSection = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -93,7 +101,7 @@ const ContactSection = () => {
             Let's Work Together
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or want to discuss opportunities? I'd love to 
+            Have a project in mind or want to discuss opportunities? I'd love to
             hear from you. Let's build something amazing together.
           </p>
         </motion.div>
@@ -107,8 +115,10 @@ const ContactSection = () => {
             className="lg:col-span-2 space-y-6"
           >
             <div className="glass-card p-6 md:p-8 glow-effect hover:border-primary/30 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
-              
+              <h3 className="text-xl font-semibold mb-6">
+                Contact Information
+              </h3>
+
               <div className="space-y-4">
                 {contactInfo.map((item, index) => (
                   <motion.a
@@ -133,8 +143,10 @@ const ContactSection = () => {
               </div>
 
               <div className="mt-8 pt-6 border-t border-border/50">
-                <p className="text-sm text-muted-foreground mb-4">Connect with me</p>
-                <div className="flex gap-3">
+                <p className="text-sm text-muted-foreground mb-4">
+                  Connect with me
+                </p>
+                <div className="flex gap-3 relative z-10">
                   {socialLinks.map((link) => (
                     <motion.a
                       key={link.label}
@@ -164,86 +176,103 @@ const ContactSection = () => {
               onSubmit={handleSubmit}
               className="glass-card p-6 md:p-8 glow-effect hover:border-primary/30 transition-all duration-300"
             >
-              <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
+              <fieldset disabled>
+                <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
 
-              <div className="grid sm:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Your Name
+                <div className="grid sm:grid-cols-2 gap-4 mb-4 relative z-10">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-2"
+                    >
+                      Your Name
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="LyLy Sok"
+                      required
+                      className="bg-secondary/50 border-border/50 focus:border-primary"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-2"
+                    >
+                      Your Email
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="lyly@example.com"
+                      required
+                      className="bg-secondary/50 border-border/50 focus:border-primary"
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-4 relative z-10">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium mb-2"
+                  >
+                    Subject
                   </label>
                   <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleChange}
-                    placeholder="John Doe"
+                    placeholder="Let's collaborate on a project"
                     required
                     className="bg-secondary/50 border-border/50 focus:border-primary"
                   />
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Your Email
+
+                <div className="mb-6 relative z-10">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium mb-2"
+                  >
+                    Message
                   </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
-                    placeholder="john@example.com"
+                    placeholder="Tell me about your project..."
+                    rows={5}
                     required
-                    className="bg-secondary/50 border-border/50 focus:border-primary"
+                    className="bg-secondary/50 border-border/50 focus:border-primary resize-none"
                   />
                 </div>
-              </div>
 
-              <div className="mb-4">
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                  Subject
-                </label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="Let's collaborate on a project"
-                  required
-                  className="bg-secondary/50 border-border/50 focus:border-primary"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell me about your project..."
-                  rows={5}
-                  required
-                  className="bg-secondary/50 border-border/50 focus:border-primary resize-none"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full group"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    Send Message
-                    <Send size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </>
-                )}
-              </Button>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full group relative z-10"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    "Sending..."
+                  ) : (
+                    <>
+                      Send Message
+                      <Send
+                        size={18}
+                        className="ml-2 group-hover:translate-x-1 transition-transform"
+                      />
+                    </>
+                  )}
+                </Button>
+              </fieldset>
             </form>
           </motion.div>
         </div>
@@ -262,13 +291,17 @@ const ContactSection = () => {
                 Ready to start a project?
               </h3>
               <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                I'm currently available for freelance work and full-time positions. 
-                Let's discuss how I can help bring your ideas to life.
+                I'm currently available for freelance work and full-time
+                positions. Let's discuss how I can help bring your ideas to
+                life.
               </p>
               <Button asChild size="lg" className="group">
                 <a href="mailto:sousdey716@gmail.com">
                   Get in touch
-                  <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight
+                    size={18}
+                    className="ml-2 group-hover:translate-x-1 transition-transform"
+                  />
                 </a>
               </Button>
             </div>
